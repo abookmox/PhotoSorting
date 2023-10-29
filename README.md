@@ -47,10 +47,11 @@ The script handles the following types of errors:
 Truncated File Read: Files with corrupted or missing EXIF data are moved to the 'error' folder.
 Invalid EXIF Data: Files with invalid or missing date information are moved to the 'error' folder.
 Nonexistent Files: Files that no longer exist are logged and moved to the 'error' folder.
+
 Contributors
-Gabriele Mossino  
-kinglyudk@gmail.com
-https://github.com/abookmox
+- Gabriele Mossino  
+- kinglyudk@gmail.com
+- https://github.com/abookmox
 
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
