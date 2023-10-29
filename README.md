@@ -54,5 +54,3 @@ https://github.com/abookmox
 
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-Make sure to replace `[Your Name]`, `[Your Email]`, and `[Your GitHub Profile]` with your actual information. You can also add additional sections or information as needed.
