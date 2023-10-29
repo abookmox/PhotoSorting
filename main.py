@@ -1,7 +1,6 @@
 import os
 from PIL import Image
 from shutil import copy2
-import imghdr
 import concurrent.futures
 
 mesi_italiani = {
@@ -19,19 +18,23 @@ mesi_italiani = {
     '12': 'dicembre'
 }
 
-def get_image_info(file_path):
+def get_image_info(file_path, error_folder):
     try:
         with Image.open(file_path) as image:
             exif_info = image._getexif()
         return image, exif_info
-    except (IOError, OSError, AttributeError):
+    except Exception as e:
+        print(f"Errore durante la lettura dell'immagine {file_path}: {str(e)}. Spostando nella cartella di errore.")
+        error_file_path = os.path.join(error_folder, os.path.basename(file_path))
+        copy2(file_path, error_file_path)
         return None, None
+
 
 def clean_folder_name(name):
     return name.strip().translate(str.maketrans("\/:*?\"<>|", "_________"))
 
 def organize_image(file_path, output_folder, unidentified_folder, error_folder, processed_counter):
-    image, exif_info = get_image_info(file_path)
+    image, exif_info = get_image_info(file_path, error_folder)
     if image is not None and exif_info:
         date = exif_info.get(36867)  # Informazioni sulla data
         if date:
