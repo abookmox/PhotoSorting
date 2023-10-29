@@ -138,7 +138,7 @@ def process_folder(input_folder, output_folder):
 
     # Stampa un messaggio di completamento con il numero di file elaborati con successo
     print(f"Organizzazione completata! {processed_counter[0]} file processati con successo su {total_files}.")
-    print(f"File non processati: {total_files - processed_counter[0]}")
+
 
 
 if __name__ == "__main__":
